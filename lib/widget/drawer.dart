@@ -47,8 +47,11 @@ class DrawerWidget extends StatelessWidget {
           const ListTile(
             title: Text('My Applications'),
           ),
-          const ListTile(
-            title: Text('Log out'),
+          ListTile(
+            onTap: () {
+              Get.back();
+            },
+            title: const Text('Log out'),
           ),
         ],
       ),
