@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:placement/Student_register.dart';
-import 'package:placement/views/home.dart';
-import 'package:placement/views/student_home.dart';
-
-
+import 'package:get/get.dart';
+import 'package:placement/controller/job_notification.dart';
+import 'package:placement/controller/login.dart';
+import 'package:placement/views/login.dart';
 
 void main() {
-  runApp(MyApp());
-  
+  Get.put(LoginController());
+  Get.put(JobController());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,11 +15,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.orange
-      ),
-      home: HomeScreen(),
+    return GetMaterialApp(
+      theme: ThemeData(primarySwatch: Colors.orange),
+      home: const LoginView(),
     );
   }
 }
