@@ -27,7 +27,9 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  carousel_slider: ^4.1.1
   cupertino_icons: ^1.0.2
+  dots_indicator: ^2.1.0
   flutter:
     sdk: flutter
   get: ^4.6.5
@@ -54,11 +56,7 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-    - C:/Users/faris/placement/assets/WhatsApp Image 2022-09-17 at 6.21.02 AM -
-      Copy (2).jpeg
-    - C:/Users/faris/placement/assets/WhatsApp Image 2022-09-17 at 6.21.02 AM -
-      Copy (3).jpeg
+  # assets:
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
