@@ -16,7 +16,7 @@ class LoginView extends StatelessWidget {
           child: Column(
             children: [
               const Text(
-                'Placement',
+                'Placement Management',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,

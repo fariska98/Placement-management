@@ -16,7 +16,7 @@ class RegistrationView extends StatelessWidget {
           child: Column(
             children: [
               const Text(
-                'Placement',
+                'Registration',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,

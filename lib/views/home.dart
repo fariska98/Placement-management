@@ -9,13 +9,19 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Placement Management System'),
+        title: const Text('Dashboard'),
       ),
       drawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
-          children: const [
+          
+          children:
+          
+          
+           const [
+            Text('Notifications',
+            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
             JobNotifications(),
           ],
         ),
