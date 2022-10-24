@@ -80,6 +80,7 @@ class LoginView extends StatelessWidget {
                 height: 20,
               ),
               TextFormField(
+                controller: controller.emailController,
                 decoration: const InputDecoration(
                   hintText: 'Email',
                   border: OutlineInputBorder(),
@@ -89,6 +90,7 @@ class LoginView extends StatelessWidget {
                 height: 20,
               ),
               TextFormField(
+                controller: controller.passwordController,
                 decoration: const InputDecoration(
                   hintText: 'Password',
                   border: OutlineInputBorder(),
