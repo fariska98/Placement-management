@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
@@ -6,6 +7,8 @@ class LoginController extends GetxController {
     'Company',
     'Faculty',
   ];
+  TextEditingController emailController=TextEditingController();
+  TextEditingController passwordController=TextEditingController();
   int index = 0;
   changeUser(int i) {
     index = i;

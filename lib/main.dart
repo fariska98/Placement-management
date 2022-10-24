@@ -1,12 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:placement/controller/job_notification.dart';
-import 'package:placement/controller/login.dart';
+import 'package:placement/controller/login_controller.dart';
 import 'package:placement/views/company_home.dart';
 import 'package:placement/views/faculty_home.dart';
+import 'package:placement/views/home.dart';
 import 'package:placement/views/login.dart';
 
-void main() {
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    
+  );
+  
   Get.put(LoginController());
   Get.put(JobController());
   
@@ -18,9 +26,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return GetMaterialApp( 
       theme: ThemeData(primarySwatch: Colors.orange),
-      home: const LoginView(),
+      home: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context,snapshot){
+          if (snapshot.hasData) {
+            return HomeScreen();
+          }else{
+            return LoginView(); }
+          
+        },
+      ),
     );
   }
 }

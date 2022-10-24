@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "890708727204",
+    "project_id": "placement-management-1aa26",
+    "storage_bucket": "placement-management-1aa26.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890708727204:android:5d2510c2bf68638b611d31",
+        "android_client_info": {
+          "package_name": "com.example.placement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890708727204-ashv7s214cuvp4svno2liql7hv6eruk9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_7R5sExUCy3tSSvkCJUg3eGmlU08ArgU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890708727204-ashv7s214cuvp4svno2liql7hv6eruk9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

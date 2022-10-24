@@ -1,8 +1,10 @@
 
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:placement/controller/login.dart';
+import 'package:placement/controller/login_controller.dart';
 import 'package:placement/views/company_home.dart';
 import 'package:placement/views/faculty_home.dart';
 import 'package:placement/views/home.dart';
@@ -99,19 +101,20 @@ class LoginView extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                     onPressed: () {
-                      if (controller.index==0) {
-                         Get.off(() => 
+                      signIn(controller.emailController.text.trim(),controller.passwordController.text.trim() );
+                      // if (controller.index==0) {
+                      //    Get.off(() => 
                       
-                      const HomeScreen());
+                      // const HomeScreen());
                         
-                      }
-                      else if (controller.index==1){
-                        Get.off(()=>const CompanyHome());
-                      }
+                      // }
+                      // else if (controller.index==1){
+                      //   Get.off(()=>const CompanyHome());
+                      // }
 
-                      else {
-                        Get.off(()=>const FacultyHome());
-                      }
+                      // else {
+                      //   Get.off(()=>const FacultyHome());
+                      // }
                     },
                     child: const Text('Login')),
               ),
@@ -143,4 +146,11 @@ class LoginView extends StatelessWidget {
       );
     });
   }
+Future signIn(
+  email,password
+) async {
+  await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
 }
+
+}
+
