@@ -1,6 +1,10 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:placement/controller/login.dart';
+import 'package:placement/views/company_home.dart';
+import 'package:placement/views/faculty_home.dart';
 import 'package:placement/views/home.dart';
 import 'package:placement/views/registration.dart';
 
@@ -95,7 +99,19 @@ class LoginView extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                     onPressed: () {
-                      Get.to(() => const HomeScreen());
+                      if (controller.index==0) {
+                         Get.off(() => 
+                      
+                      const HomeScreen());
+                        
+                      }
+                      else if (controller.index==1){
+                        Get.off(()=>const CompanyHome());
+                      }
+
+                      else {
+                        Get.off(()=>const FacultyHome());
+                      }
                     },
                     child: const Text('Login')),
               ),

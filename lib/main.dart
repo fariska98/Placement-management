@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:placement/controller/job_notification.dart';
 import 'package:placement/controller/login.dart';
+import 'package:placement/views/company_home.dart';
+import 'package:placement/views/faculty_home.dart';
 import 'package:placement/views/login.dart';
 
 void main() {
   Get.put(LoginController());
   Get.put(JobController());
+  
   runApp(const MyApp());
 }
 

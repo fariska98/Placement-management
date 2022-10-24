@@ -43,35 +43,35 @@ class CompanyRegistration extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFormField(
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.account_circle),
-            hintText: "Company Name",
-            border: OutlineInputBorder(),
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        TextFormField(
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.account_circle),
-            hintText: "HR Name",
-            border: OutlineInputBorder(),
-          ),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        TextFormField(
-          //textInputAction: TextInputType.phone,
-          keyboardType: TextInputType.phone,
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.account_circle),
-            hintText: "Phone No",
-            border: OutlineInputBorder(),
-          ),
-        ),
+        // TextFormField(
+        //   decoration: const InputDecoration(
+        //     prefixIcon: Icon(Icons.account_circle),
+        //     hintText: "Company Name",
+        //     border: OutlineInputBorder(),
+        //   ),
+        // ),
+        // const SizedBox(
+        //   height: 10,
+        // ),
+        // TextFormField(
+        //   decoration: const InputDecoration(
+        //     prefixIcon: Icon(Icons.account_circle),
+        //     hintText: "HR Name",
+        //     border: OutlineInputBorder(),
+        //   ),
+        // ),
+        // const SizedBox(
+        //   height: 10,
+        // ),
+        // TextFormField(
+        //   //textInputAction: TextInputType.phone,
+        //   keyboardType: TextInputType.phone,
+        //   decoration: const InputDecoration(
+        //     prefixIcon: Icon(Icons.account_circle),
+        //     hintText: "Phone No",
+        //     border: OutlineInputBorder(),
+        //   ),
+        // ),
         const SizedBox(
           height: 10,
         ),
@@ -122,41 +122,41 @@ class StudentRegistration extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TextFormField(
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.account_circle),
-            hintText: "First Name",
-            border: OutlineInputBorder(),
-          ),
-          onChanged: (value) {},
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        TextFormField(
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.account_circle),
-            hintText: "Last Name",
-            border: OutlineInputBorder(),
-          ),
-          onChanged: (value) {},
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        TextFormField(
-          //textInputAction: TextInputType.phone,
-          keyboardType: TextInputType.phone,
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.account_circle),
-            hintText: "Phone No",
-            border: OutlineInputBorder(),
-          ),
-          onChanged: (value) {},
-        ),
-        const SizedBox(
-          height: 10,
-        ),
+        // TextFormField(
+        //   decoration: const InputDecoration(
+        //     prefixIcon: Icon(Icons.account_circle),
+        //     hintText: "First Name",
+        //     border: OutlineInputBorder(),
+        //   ),
+        //   onChanged: (value) {},
+        // ),
+        // const SizedBox(
+        //   height: 10,
+        // ),
+        // TextFormField(
+        //   decoration: const InputDecoration(
+        //     prefixIcon: Icon(Icons.account_circle),
+        //     hintText: "Last Name",
+        //     border: OutlineInputBorder(),
+        //   ),
+        //   onChanged: (value) {},
+        // ),
+        // const SizedBox(
+        //   height: 10,
+        // ),
+        // TextFormField(
+        //   //textInputAction: TextInputType.phone,
+        //   keyboardType: TextInputType.phone,
+        //   decoration: const InputDecoration(
+        //     prefixIcon: Icon(Icons.account_circle),
+        //     hintText: "Phone No",
+        //     border: OutlineInputBorder(),
+        //   ),
+        //   onChanged: (value) {},
+        // ),
+        // const SizedBox(
+        //   height: 10,
+        // ),
         TextFormField(
           decoration: const InputDecoration(
             prefixIcon: Icon(Icons.mail_outline_rounded),
