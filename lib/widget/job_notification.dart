@@ -23,7 +23,7 @@ class JobNotifications extends StatelessWidget {
                 enableInfiniteScroll: false,
                 autoPlay: false,
                 enlargeCenterPage: true,
-                scrollPhysics: BouncingScrollPhysics(),
+                scrollPhysics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 onPageChanged: (index, reason) =>
                     controller.changePosition(index),
@@ -35,7 +35,7 @@ class JobNotifications extends StatelessWidget {
                   width: double.infinity - 30,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
-                    color: Colors.orange,
+                    color: Colors.deepPurple,
                   ),
                 );
               }),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:placement/views/login.dart';
 import 'package:placement/views/profile.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -49,7 +50,7 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              Get.back();
+              // Get.to(()=> const LoginView());
             },
             title: const Text('Log out'),
           ),

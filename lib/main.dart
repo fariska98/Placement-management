@@ -5,9 +5,11 @@ import 'package:get/get.dart';
 import 'package:placement/controller/job_notification.dart';
 import 'package:placement/controller/login_controller.dart';
 import 'package:placement/views/company_home.dart';
-import 'package:placement/views/faculty_home.dart';
+// import 'package:placement/views/company_home.dart';
+// import 'package:placement/views/faculty_home.dart';
 import 'package:placement/views/home.dart';
 import 'package:placement/views/login.dart';
+import 'package:placement/views/personal_details.dart';
 
 Future main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,14 +29,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp( 
-      theme: ThemeData(primarySwatch: Colors.orange),
-      home: StreamBuilder<User?>(
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
+      home:
+       StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context,snapshot){
           if (snapshot.hasData) {
-            return HomeScreen();
+            return const HomeScreen();
           }else{
-            return LoginView(); }
+            return const LoginView(); }
           
         },
       ),

@@ -44,6 +44,7 @@ class CompanyHome extends StatelessWidget {
             chartType: ChartType.ring,),
           )
         ],)),
+        backgroundColor: Colors.green[50],
       );
     },);
   }
