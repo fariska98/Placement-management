@@ -30,17 +30,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp( 
       theme: ThemeData(primarySwatch: Colors.deepPurple),
-      home:
-       StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context,snapshot){
-          if (snapshot.hasData) {
-            return const HomeScreen();
-          }else{
-            return const LoginView(); }
+      home:LoginView()
+      //  StreamBuilder<User?>(
+      //   stream: FirebaseAuth.instance.authStateChanges(),
+      //   builder: (context,snapshot){
+      //     if (snapshot.hasData) {
+      //       return const HomeScreen();
+      //     }else{
+      //       return const LoginView(); }
           
-        },
-      ),
+      //   },
+      // ),
     );
   }
 }

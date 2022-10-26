@@ -17,7 +17,7 @@ class CompanyHome extends StatelessWidget {
         ),
         drawer: const CompanyDrawerWidget(),
         body: SingleChildScrollView(child: Column(children:  [
-         SizedBox(height: 50,),
+         const SizedBox(height: 50,),
           SizedBox(
             height: 120,
             child: PieChart(dataMap: {
@@ -25,11 +25,11 @@ class CompanyHome extends StatelessWidget {
               'selected':3,
 
             },
-            animationDuration: Duration(milliseconds: 800),
+            animationDuration: const Duration(milliseconds: 800),
             chartRadius: MediaQuery.of(context).size.width/3,
             chartType: ChartType.ring,),
           ),
-          SizedBox(
+          const SizedBox(
             height: 60,
           ),
           SizedBox(
@@ -39,7 +39,7 @@ class CompanyHome extends StatelessWidget {
               'No of students Applied':60,
 
             },
-            animationDuration: Duration(milliseconds: 800),
+            animationDuration: const Duration(milliseconds: 800),
             chartRadius: MediaQuery.of(context).size.width/3,
             chartType: ChartType.ring,),
           )

@@ -104,19 +104,19 @@ class LoginView extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: () {
                       signIn(controller.emailController.text.trim(),controller.passwordController.text.trim() );
-                      // if (controller.index==0) {
-                      //    Get.off(() => 
+                      if (controller.index==0) {
+                         Get.off(() => 
                       
-                      // const HomeScreen());
+                      const HomeScreen());
                         
-                      // }
-                      // else if (controller.index==1){
-                      //   Get.off(()=>const CompanyHome());
-                      // }
+                      }
+                      else if (controller.index==1){
+                        Get.off(()=>const CompanyHome());
+                      }
 
-                      // else {
-                      //   Get.off(()=>const FacultyHome());
-                      // }
+                      else {
+                        Get.off(()=>const FacultyHome());
+                      }
                     },
                     child: const Text('Login')),
               ),

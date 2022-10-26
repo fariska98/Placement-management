@@ -50,7 +50,7 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              // Get.to(()=> const LoginView());
+               Get.to(()=> const LoginView());
             },
             title: const Text('Log out'),
           ),

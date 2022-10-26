@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:placement/views/company_details.dart';
+import 'package:placement/views/personal_details.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -64,20 +66,22 @@ class ProfileView extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(()=>const PersonalDetails());
+                },
                 child: const Text('Personal Details'),
               ),
             ),
             const SizedBox(
               height: 10,
             ),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text('Academic Details'),
-              ),
-            ),
+            // SizedBox(
+            //   width: double.infinity,
+            //   child: ElevatedButton(
+            //     onPressed: () {},
+            //     child: const Text('Academic Details'),
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -148,7 +152,9 @@ class CompanyProfileView extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(()=>CompanyDetails());
+                },
                 child: const Text('Company Details'),
               ),
             ),
