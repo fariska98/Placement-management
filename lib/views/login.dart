@@ -19,140 +19,138 @@ class LoginView extends StatelessWidget {
       return Scaffold(
         body: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(10, 100, 10, 20),
-          child: Column(
-            children: [
-              const Text(
-                'Placement Management',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              SizedBox(
-                height: 50,
-                width: double.infinity,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            controller.changeUser(0);
-                          },
-                          child: const Text('Student'),
-                        ),
-                      ),
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            controller.changeUser(1);
-                          },
-                          child: const Text('Company'),
-                        ),
-                      ),
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            controller.changeUser(2);
-                          },
-                          child: const Text('Faculty'),
-                        ),
-                      ),
-                    ],
+          child: Form(
+            key: controller.formkey,
+            child: Column(
+              children: [
+                const Text(
+                  'Placement Management',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              Text(
-                controller.title[controller.index],
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                controller: controller.emailController,
-                decoration: const InputDecoration(
-                  hintText: 'Email',
-                  border: OutlineInputBorder(),
+                // SizedBox(
+                //   height: 50,
+                //   width: double.infinity,
+                //   child: ClipRRect(
+                //     borderRadius: BorderRadius.circular(10),
+                //     child: Row(
+                //       children: [
+                //         Expanded(
+                //           child: ElevatedButton(
+                //             onPressed: () {
+                //               controller.changeUser(0);
+                //             },
+                //             child: const Text('Student'),
+                //           ),
+                //         ),
+                //         Expanded(
+                //           child: ElevatedButton(
+                //             onPressed: () {
+                //               controller.changeUser(1);
+                //             },
+                //             child: const Text('Company'),
+                //           ),
+                //         ),
+                //         Expanded(
+                //           child: ElevatedButton(
+                //             onPressed: () {
+                //               controller.changeUser(2);
+                //             },
+                //             child: const Text('Faculty'),
+                //           ),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
+                // const SizedBox(
+                //   height: 40,
+                // ),
+                // Text(
+                //   controller.title[controller.index],
+                //   style: const TextStyle(
+                //     fontSize: 22,
+                //     fontWeight: FontWeight.bold,
+                //   ),
+                // ),
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                controller: controller.passwordController,
-                decoration: const InputDecoration(
-                  hintText: 'Password',
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                    onPressed: () {
-                      signIn(controller.emailController.text.trim(),controller.passwordController.text.trim() );
-                      if (controller.index==0) {
-                         Get.off(() => 
-                      
-                      const HomeScreen());
-                        
-                      }
-                      else if (controller.index==1){
-                        Get.off(()=>const CompanyHome());
-                      }
-
-                      else {
-                        Get.off(()=>const FacultyHome());
+                TextFormField(
+                  keyboardType: TextInputType.emailAddress,
+                   validator: (value) {
+                      if (value==null||value.isEmpty) {
+                        return 'Email';
                       }
                     },
-                    child: const Text('Login')),
-              ),
-              controller.title[controller.index] != 'Faculty'
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text('Havent registered?'),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Get.to(() => RegistrationView(
-                                  user: controller.title[controller.index],
-                                ));
-                          },
-                          child: const Text(
-                            'Sign Up',
-                            style: TextStyle(color: Colors.blue),
+                  controller: controller.emailController,
+                  decoration: const InputDecoration(
+                    hintText: 'Email',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  
+                   validator: (value) {
+                      if (value==null||value.isEmpty) {
+                        return 'Password';
+                      }
+                    },
+                  controller: controller.passwordController,
+                  decoration: const InputDecoration(
+                    hintText: 'Password',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        controller.signIn();
+                       
+                      },
+                      child: const Text('Login')),
+                ),
+               
+                     Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text('Havent registered?'),
+                          const SizedBox(
+                            width: 10,
                           ),
-                        ),
-                      ],
-                    )
-                  : const SizedBox(),
-            ],
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(() => RegistrationView(
+                                    // user: controller.title[controller.index],
+                                  ));
+                            },
+                            child: const Text(
+                              'Sign Up',
+                              style: TextStyle(color: Colors.blue),
+                            ),
+                          ),
+                        ],
+                      ),
+              ],
+            ),
           ),
         ),
       );
     });
   }
-Future signIn(
-  email,password
-) async {
-  await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
-}
+
 
 }
 

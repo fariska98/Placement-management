@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:placement/controller/login_controller.dart';
+import 'package:placement/views/home.dart';
 import 'package:placement/views/login.dart';
+import 'package:placement/views/personal_details.dart';
 
 class RegistrationView extends StatelessWidget {
-  final String user;
-  const RegistrationView({super.key, required this.user});
-
+  
+  //final String user;
+  const RegistrationView({super.key,});
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: GetBuilder<LoginController>(
@@ -14,194 +17,132 @@ class RegistrationView extends StatelessWidget {
         return SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(10, 100, 10, 20),
           child: Column(
-            children: [
-              const Text(
+            children: const [
+              Text(
                 'Registration',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
-              user == 'Student'
-                  ? const StudentRegistration()
-                  : const CompanyRegistration(),
+             
+                   StudentRegistration()
+                  
             ],
           ),
         );
       },
-    ));
+    )); 
   }
 }
 
-class CompanyRegistration extends StatelessWidget {
-  const CompanyRegistration({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // TextFormField(
-        //   decoration: const InputDecoration(
-        //     prefixIcon: Icon(Icons.account_circle),
-        //     hintText: "Company Name",
-        //     border: OutlineInputBorder(),
-        //   ),
-        // ),
-        // const SizedBox(
-        //   height: 10,
-        // ),
-        // TextFormField(
-        //   decoration: const InputDecoration(
-        //     prefixIcon: Icon(Icons.account_circle),
-        //     hintText: "HR Name",
-        //     border: OutlineInputBorder(),
-        //   ),
-        // ),
-        // const SizedBox(
-        //   height: 10,
-        // ),
-        // TextFormField(
-        //   //textInputAction: TextInputType.phone,
-        //   keyboardType: TextInputType.phone,
-        //   decoration: const InputDecoration(
-        //     prefixIcon: Icon(Icons.account_circle),
-        //     hintText: "Phone No",
-        //     border: OutlineInputBorder(),
-        //   ),
-        // ),
-        const SizedBox(
-          height: 10,
-        ),
-        TextFormField(
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.mail_outline_rounded),
-            hintText: "Email",
-            border: OutlineInputBorder(),
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        TextFormField(
-          obscureText: true,
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.lock),
-            hintText: "Enter password",
-            suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(),
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        TextFormField(
-          obscureText: true,
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.lock),
-            hintText: "Re-Enter password",
-            suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(),
-          ),
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        ElevatedButton(onPressed: () async {}, child: const Text("Submit")),
-      ],
-    );
-  }
-}
 
 class StudentRegistration extends StatelessWidget {
   const StudentRegistration({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // TextFormField(
-        //   decoration: const InputDecoration(
-        //     prefixIcon: Icon(Icons.account_circle),
-        //     hintText: "First Name",
-        //     border: OutlineInputBorder(),
-        //   ),
-        //   onChanged: (value) {},
-        // ),
-        // const SizedBox(
-        //   height: 10,
-        // ),
-        // TextFormField(
-        //   decoration: const InputDecoration(
-        //     prefixIcon: Icon(Icons.account_circle),
-        //     hintText: "Last Name",
-        //     border: OutlineInputBorder(),
-        //   ),
-        //   onChanged: (value) {},
-        // ),
-        // const SizedBox(
-        //   height: 10,
-        // ),
-        // TextFormField(
-        //   //textInputAction: TextInputType.phone,
-        //   keyboardType: TextInputType.phone,
-        //   decoration: const InputDecoration(
-        //     prefixIcon: Icon(Icons.account_circle),
-        //     hintText: "Phone No",
-        //     border: OutlineInputBorder(),
-        //   ),
-        //   onChanged: (value) {},
-        // ),
-        // const SizedBox(
-        //   height: 10,
-        // ),
-        TextFormField(
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.mail_outline_rounded),
-            hintText: "Email",
-            border: OutlineInputBorder(),
+    return GetBuilder<LoginController>(builder: ((controller) {
+      
+      return Form(
+        key: controller.registrationFormKey,
+        child: Column(
+        children: [
+         
+          // TextFormField(
+          //   controller: controller.nameController,
+          //   decoration: const InputDecoration(
+          //     prefixIcon: Icon(Icons.person),
+          //     hintText: "Name",
+          //     border: OutlineInputBorder(),
+          //   ),
+          //   onChanged: (value) {},
+          // ),
+          const SizedBox(
+            height: 10,
           ),
-          onChanged: (value) {},
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        TextFormField(
-          obscureText: true,
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.lock),
-            hintText: "Enter password",
-            suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(),
+           TextFormField(
+            keyboardType: TextInputType.emailAddress,
+              validator: (value) {
+                        if (value==null||value.isEmpty) {
+                          return 'Email';
+                        }
+                      },
+            controller: controller.emailController,
+            decoration: const InputDecoration(
+              prefixIcon: Icon(Icons.mail_outline_rounded),
+              hintText: "Email",
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {},
           ),
-          onChanged: (value) {},
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        TextFormField(
-          obscureText: true,
-          decoration: const InputDecoration(
-            prefixIcon: Icon(Icons.lock),
-            hintText: "Re-Enter password",
-            suffixIcon: Icon(Icons.visibility),
-            border: OutlineInputBorder(),
+          const SizedBox(
+            height: 10,
           ),
-          onChanged: (value) {},
-        ),
-        const SizedBox(
-          height: 20,
-        ),
-        SizedBox(
-            width: double.infinity,
-            child: ElevatedButton(
-                onPressed: () async {
-                  Get.to(() => const LoginView());
-                },
-                child: const Text("Submit"))),
-      ],
-    );
+          // DropdownButton(
+          //   value: controller.dropdownValue,
+          //   items:  controller.items.map((String items) => DropdownMenuItem(value: items,
+          // child: Text(items),)).toList(), onChanged: (String? newValue){
+          //    controller.changeDropdown(newValue);
+      
+          // }),
+          TextFormField(
+              validator: (value) {
+                        if (value==null||value.isEmpty) {
+                          return 'Password';
+                        }
+                      },
+            controller: controller.passwordController,
+            obscureText: true,
+            decoration: const InputDecoration(
+              prefixIcon: Icon(Icons.lock),
+              hintText: "Enter password",
+              suffixIcon: Icon(Icons.visibility),
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {},
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField(
+              validator: (value) {
+                        if (value==null||value.isEmpty) {
+                          return 'Re-enter Password';
+                        }
+                      },
+            controller: controller.passwordController,
+            obscureText: true,
+            decoration: const InputDecoration(
+              prefixIcon: Icon(Icons.lock),
+              hintText: "Re-Enter password",
+              suffixIcon: Icon(Icons.visibility),
+              border: OutlineInputBorder(),
+            ),
+            onChanged: (value) {},
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                  onPressed: ()  {
+                    controller.createUser();
+                    // controller.name();
+                    // controller.email();
+                    // controller.pass();
+                  },
+                  child: const Text("Submit"))),
+        ],
+          ),
+      );
+    }));
+    
+    
   }
 }

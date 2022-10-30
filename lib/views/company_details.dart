@@ -10,12 +10,7 @@ import 'package:placement/controller/job_notification.dart';
   @override
   Widget build(BuildContext context) {
     return GetBuilder<JobController>(builder: ((controller) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('Profile'),
-        ),
-        body:  SingleChildScrollView(
-          child: Column(
+      return Column(
             children: [
               const Padding(
                 padding: EdgeInsets.only(top: 10),
@@ -72,12 +67,17 @@ import 'package:placement/controller/job_notification.dart';
             ),
                 ),
               ),
+               Padding(
+                padding: const EdgeInsets.only(left: 25,right: 25,bottom: 25,top: 25),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(onPressed: (){}, child: const Text('Submit'))),
+
+            )
                 
             ],
 
-          ),
-        ),
-      );
+          );
     }));
   }
 }

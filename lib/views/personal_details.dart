@@ -1,25 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:placement/controller/job_notification.dart';
+import 'package:placement/controller/login_controller.dart';
 
 class PersonalDetails extends StatelessWidget {
   const PersonalDetails({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<JobController>(builder: ((controller) {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('Details'),
-          leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: const Icon(Icons.navigate_before),
-        ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
+    return GetBuilder<LoginController>(builder: ((controller) {
+      return Column(
             children: [
               const Padding(
                 padding: EdgeInsets.only(top: 10),
@@ -29,6 +19,7 @@ class PersonalDetails extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: TextFormField(
+                  
                   decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.person),
                 hintText: "Name",
@@ -91,13 +82,6 @@ class PersonalDetails extends StatelessWidget {
                 child: Text('Academic Details',
                 style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
               ),
-
-
-
-
-
-
-               
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: TextFormField(
@@ -287,13 +271,17 @@ class PersonalDetails extends StatelessWidget {
             ),
                 ),
               ),
+              
+              Padding(
+                padding: const EdgeInsets.only(left: 25,right: 25,bottom: 25),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(onPressed: (){}, child: const Text('Submit'))),
+
+              )
             ],
-          ),
-        ),
-          
-
-
-      );
+            
+          );
     }));
   }
 }

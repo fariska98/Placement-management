@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:placement/controller/login_controller.dart';
 import 'package:placement/views/login.dart';
 import 'package:placement/views/profile.dart';
 
@@ -49,7 +51,8 @@ class DrawerWidget extends StatelessWidget {
             title: Text('My Applications'),
           ),
           ListTile(
-            onTap: () {
+            onTap: () async{
+              Get.find<LoginController>().signout();
                Get.to(()=> const LoginView());
             },
             title: const Text('Log out'),

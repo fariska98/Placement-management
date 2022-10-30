@@ -33,6 +33,7 @@ dependencies:
   dots_indicator: ^2.1.0
   firebase_auth: ^4.0.2
   firebase_core: ^2.1.0
+  firebase_database: ^10.0.2
   flutter:
     sdk: flutter
   get: ^4.6.5
