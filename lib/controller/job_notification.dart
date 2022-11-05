@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class JobController extends GetxController {
   int index = 0;
+  bool loading = true;
   TextEditingController companyName = TextEditingController();
   TextEditingController jobTitle = TextEditingController();
   TextEditingController discription = TextEditingController();
@@ -16,6 +17,17 @@ class JobController extends GetxController {
 
   final formkey=GlobalKey<FormState>();
 
+  List<String> docIDs = [];
+  //get doc id
+  Future getdocID() async {
+    await FirebaseFirestore.instance
+        .collection("Jobs")
+        .get()
+        .then((snapshot) => snapshot.docs.forEach((document) {
+              docIDs.add(document.reference.id);
+            }));
+  }
+
   submit(){
     if (formkey.currentState!.validate()) {
       addJobNotification();
@@ -24,13 +36,15 @@ class JobController extends GetxController {
   }
 
   addJobNotification(){
-    var notification=companyName.text+'*'+jobTitle.text+'*'+discription.text+'*'+backPapers.text+'*'+passoutYear.text+'*'
-    +salaryRange.text+'*'+jobLocation.text+'*'+linkForApply.text+'*'+companyEmail.text;
+    // var notification=companyName.text+'*'+jobTitle.text+'*'+discription.text+'*'+backPapers.text+'*'+passoutYear.text+'*'
+    // +salaryRange.text+'*'+jobLocation.text+'*'+linkForApply.text+'*'+companyEmail.text;
 
         
     FirebaseFirestore.instance
         .collection("Jobs")
-        .add({"Content": notification});
+        .add({"Name": companyName.text,"title":jobTitle.text,"discription":discription.text,
+        "backpapers":backPapers.text,"passout":passoutYear.text,"salary":salaryRange.text,
+        "location":jobLocation.text,"link":linkForApply.text});
   
   }
 

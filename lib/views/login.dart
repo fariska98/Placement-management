@@ -1,5 +1,3 @@
-
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +7,8 @@ import 'package:placement/views/company_home.dart';
 import 'package:placement/views/faculty_home.dart';
 import 'package:placement/views/home.dart';
 import 'package:placement/views/registration.dart';
+// import 'package:social_media_buttons/social_media_button.dart';
+// import 'package:social_media_buttons/social_media_buttons.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -17,12 +17,15 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<LoginController>(builder: (controller) {
       return Scaffold(
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(10, 100, 10, 20),
           child: Form(
             key: controller.formkey,
             child: Column(
               children: [
+                Image.network(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3KOSc0zV5pnXoTCXKTukWcxDMlmHR2x5cbQ&usqp=CAU'),
                 const Text(
                   'Placement Management',
                   style: TextStyle(
@@ -30,9 +33,9 @@ class LoginView extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                // const SizedBox(
+                //   height: 20,
+                // ),
                 // SizedBox(
                 //   height: 50,
                 //   width: double.infinity,
@@ -81,68 +84,111 @@ class LoginView extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                   validator: (value) {
-                      if (value==null||value.isEmpty) {
-                        return 'Email';
-                      }
-                    },
-                  controller: controller.emailController,
-                  decoration: const InputDecoration(
-                    hintText: 'Email',
-                    border: OutlineInputBorder(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius:
+                            const BorderRadius.all(const Radius.circular(120))),
+                    child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email';
+                        }
+                      },
+                      controller: controller.emailController,
+                      decoration: const InputDecoration(
+                        hintText: 'Email',
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(120))),
+                      ),
+                    ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  
-                   validator: (value) {
-                      if (value==null||value.isEmpty) {
-                        return 'Password';
-                      }
-                    },
-                  controller: controller.passwordController,
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
-                    border: OutlineInputBorder(),
+                // const SizedBox(
+                //   height: 20,
+                // ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius:
+                            const BorderRadius.all(const Radius.circular(120))),
+                    child: TextFormField(
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Password';
+                        }
+                      },
+                      controller: controller.passwordController,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        hintText: 'Password',
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(120))),
+                      ),
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        controller.signIn();
-                       
-                      },
-                      child: const Text('Login')),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                        onPressed: () {
+                          controller.signIn();
+                        },
+                        child: const Text('Login'),
+                        style: ButtonStyle(
+                            shape: MaterialStateProperty.all<
+                                    RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                    side: BorderSide(color: Colors.grey))))),
+                  ),
                 ),
-               
-                     Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text('Havent registered?'),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.to(() => RegistrationView(
-                                    // user: controller.title[controller.index],
-                                  ));
-                            },
-                            child: const Text(
-                              'Sign Up',
-                              style: TextStyle(color: Colors.blue),
-                            ),
-                          ),
-                        ],
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Havent registered?'),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(() => const RegistrationView(
+                            // user: controller.title[controller.index],
+                            ));
+                      },
+                      child: const Text(
+                        'Sign Up',
+                        style: TextStyle(color: Colors.blue),
                       ),
+                    ),
+                  ],
+                ),
+                
+                // Row(
+                //   children: const [
+                //     SocialMediaButton.facebook(
+                //       url: "https://www.facebook.com/mesaimat1",
+                //       size: 35,
+                //       color: Colors.blue,
+                //     ),
+                    
+                //     Icon(SocialMediaIcons.instagram),
+
+                //   ],
+                // )
               ],
             ),
           ),
@@ -150,7 +196,4 @@ class LoginView extends StatelessWidget {
       );
     });
   }
-
-
 }
-

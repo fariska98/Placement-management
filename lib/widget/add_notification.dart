@@ -196,6 +196,7 @@ class AddNotification extends StatelessWidget {
                       child: ElevatedButton(
                           onPressed: () {
                             controller.submit();
+                            Get.back();
                           }, child: const Text('Submit'))),
                 )
               ],

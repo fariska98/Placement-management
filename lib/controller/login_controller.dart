@@ -62,11 +62,21 @@ class LoginController extends GetxController {
   }
   Future signIn() async {
   if(formkey.currentState!.validate()){
-    await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
- 
+    try{
+await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
+ Get.off(()=>const HomeScreen());
+    }catch(e){
+      Get.snackbar(
+                      'User Not found',
+                      'Check Username and password',
+                      snackPosition: SnackPosition.BOTTOM
+                  );
+      // return e;
+    }
+    
   Get.find<LoginController>().emailController.clear();
   Get.find<LoginController>().passwordController.clear();
-    Get.off(()=>const HomeScreen());
+    
 
   }
   

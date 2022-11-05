@@ -17,7 +17,7 @@ class JobNotifications extends StatelessWidget {
         children: [
           CarouselSlider.builder(
               options: CarouselOptions(
-                aspectRatio: 16 / 10,
+                aspectRatio: 16/16,
                 viewportFraction: 1,
                 initialPage: 0,
                 enableInfiniteScroll: false,
