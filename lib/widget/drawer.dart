@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:placement/controller/login_controller.dart';
+import 'package:placement/views/display_details.dart';
 import 'package:placement/views/display_notification.dart';
 import 'package:placement/views/login.dart';
 import 'package:placement/views/profile.dart';
@@ -45,7 +46,7 @@ class DrawerWidget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              Get.to(() => const ProfileView());
+              Get.to(() => const DisplayDetails());
             },
             title: const Text('Profile'),
           ),

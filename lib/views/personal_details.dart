@@ -401,6 +401,7 @@ class PersonalDetails extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () {
                         controller.registerUser();
+                        Get.back();
                       }, child: const Text('Submit'))),
             )
           ],

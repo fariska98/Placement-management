@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:placement/controller/details.dart';
 import 'package:placement/views/company_details.dart';
 import 'package:placement/views/personal_details.dart';
 
@@ -8,8 +9,9 @@ class ProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return GetBuilder<DetailsController>(builder: ((controller) {
+      return Scaffold(
+        appBar: AppBar(
         title: Text('Profile'),
         leading: IconButton(
           onPressed: () {
@@ -52,9 +54,11 @@ class ProfileView extends StatelessWidget {
                                   color:
                                       const Color(0xffeff2fa).withOpacity(0.7),
                                 ),
+                                
                               ),
                             ),
                           ),
+                          
                         ),
                       ),
                     ],
@@ -63,18 +67,36 @@ class ProfileView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Get.to(()=>const PersonalDetails());
-                },
-                child: const Text('Personal Details'),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
+            Text("Name:${controller.details["name"]}"),
+                  Text("Email:${controller.details["email"]}"),
+                  Text("Contact:${controller.details["contact"]}"),
+                  Text("Gender:${controller.details["gender"]}"),
+                  Text("DOB:${controller.details["dob"]}"),
+                  Text("Address:${controller.details["address"]}"),
+                  Text("Department:${controller.details["department"]}"),
+                  Text("Passout:${controller.details["passout"]}"),
+                  Text("CGPA:${controller.details["cgpa"]}"),
+                  Text("Backlog:${controller.details["backlog"]}"),
+                  Text("UG Stream:${controller.details["ugstream"]}"),
+                  Text("UG CGPA:${controller.details["ug cgpa"]}"),
+                  Text("HS Stream:${controller.details["hs stream"]}"),
+                  Text("HS School:${controller.details["hs school"]}"),
+                  Text("HS Persentage:${controller.details["hs %"]}"),
+                  Text("SSLC Stream:${controller.details["sslc stream"]}"),
+                  Text("SSLC School:${controller.details["sslc school"]}"),
+                  Text("SSLC Persentage:${controller.details["sslc %"]}"),
+            // SizedBox(
+            //   width: double.infinity,
+            //   child: ElevatedButton(
+            //     onPressed: () {
+            //       Get.to(()=>const PersonalDetails());
+            //     },
+            //     child: const Text('Personal Details'),
+            //   ),
+            // ),
+            // const SizedBox(
+            //   height: 10,
+            // ),
             // SizedBox(
             //   width: double.infinity,
             //   child: ElevatedButton(
@@ -85,7 +107,8 @@ class ProfileView extends StatelessWidget {
           ],
         ),
       ),
-    );
+      );
+    }));
   }
 }
 

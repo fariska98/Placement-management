@@ -14,13 +14,13 @@ class DisplayNotification extends StatelessWidget {
         builder: (controller){
         return Column(
           children: [
-            Text('Notifications'),
+            Text('NOTIFICATION'),
             Expanded(
           child: FutureBuilder(
         future: controller.getdocID(),
         builder: (context, snapshot) {
           return ListView.builder(
-              //list creat
+              //list create
               itemCount: controller.docIDs.length,
               itemBuilder: (context, index) {
                 return ListTile(

@@ -14,16 +14,18 @@ class HomeScreen extends StatelessWidget {
       drawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: Column(
-          
-          children:
-          
-          
-           const [
-            Text('Notifications',
-            style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
-            JobNotifications(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            
+            children:
+            
+            
+             const [
+              Text('Notifications',
+              style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+              JobNotifications(),
+            ],
+          ),
         ),
       ),
     );

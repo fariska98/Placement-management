@@ -10,6 +10,7 @@ import 'package:placement/controller/login_controller.dart';
 class DetailsController extends GetxController{
  final _auth=FirebaseAuth.instance;
   final formkey=GlobalKey<FormState>();
+  var details;
 
 
 
@@ -39,7 +40,7 @@ Future<void> selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
+        firstDate: DateTime(1985, 8),
         lastDate: DateTime(2101));
     if (picked != null && picked != selectedDate) {
       
@@ -60,10 +61,20 @@ Future<void> selectDate(BuildContext context) async {
         "backlog":backlogController.text,"ugstream":streamController.text,"college":collegeController.text,
         "ug cgpa":ugcgpaController.text,"hs Stream":hsstreamController.text,"hs school":hsschoolController.text,
         "hs %":hspersentageController.text,"sslc stream":sslcstreamController.text,"sslc school":sslcschoolController.text,
-        "sslc %":sslcpersentageController});
+        "sslc %":sslcpersentageController.text});
       
     }
+    
    
   
+  }
+  List<String> docIDs = [];
+     Future getdocID() async {
+    await FirebaseFirestore.instance
+        .collection("Jobs")
+        .get()
+        .then((snapshot) => snapshot.docs.forEach((document) {
+              docIDs.add(document.reference.id);
+            }));
   }
 }

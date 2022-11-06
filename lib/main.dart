@@ -6,7 +6,7 @@ import 'package:placement/controller/details.dart';
 import 'package:placement/controller/job_notification.dart';
 import 'package:placement/controller/login_controller.dart';
 import 'package:placement/views/company_home.dart';
-import 'package:placement/views/company_home.dart';
+
 import 'package:placement/views/faculty_home.dart';
 import 'package:placement/views/home.dart';
 import 'package:placement/views/login.dart';
