@@ -7,21 +7,20 @@ import 'package:placement/views/home.dart';
 
 import '../views/personal_details.dart';
 
-
 class LoginController extends GetxController {
-  final _auth=FirebaseAuth.instance;
-    TextEditingController nameController=TextEditingController();
+  final _auth = FirebaseAuth.instance;
+  TextEditingController nameController = TextEditingController();
 
-  TextEditingController emailController=TextEditingController();
-  TextEditingController passwordController=TextEditingController();
-  final formkey=GlobalKey<FormState>();
-  final registrationFormKey=GlobalKey<FormState>();
- String dropdownValue='Student';
-      var items =['Student','Company'];
-      changeDropdown(String? newValue){
-        dropdownValue=newValue!;
-        update();
-      }
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  final formkey = GlobalKey<FormState>();
+  final registrationFormKey = GlobalKey<FormState>();
+  String dropdownValue = 'Student';
+  var items = ['Student', 'Company'];
+  changeDropdown(String? newValue) {
+    dropdownValue = newValue!;
+    update();
+  }
   //      void name() {
   //   FirebaseFirestore.instance
   //       .collection("Name")
@@ -37,49 +36,43 @@ class LoginController extends GetxController {
   //   FirebaseFirestore.instance
   //       .collection("pass")
   //       .add({"passward": passwordController.text});
-  // }    
-  createUser()async{
+  // }
+  createUser() async {
     if (registrationFormKey.currentState!.validate()) {
-      var email=emailController.text;
-    var pass=passwordController.text;
-  
-    try {
-                    final newUser = await _auth.createUserWithEmailAndPassword(
-                        email: email, password: pass);
-                    if (newUser != null) {
-                                   Get.off(()=>const Details());
+      var email = emailController.text;
+      var pass = passwordController.text;
 
-                    }
-                  } catch (e) {
-                    print(e);
-                  }
-  }
-      
+      try {
+        final newUser = await _auth.createUserWithEmailAndPassword(
+            email: email, password: pass);
+        if (newUser != null) {
+          Get.off(() => const Details());
+        }
+      } catch (e) {
+        print(e);
+      }
     }
-    
-  signout()async{
+  }
+
+  signout() async {
     await _auth.signOut();
   }
+
   Future signIn() async {
-  if(formkey.currentState!.validate()){
-    try{
-await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
- Get.off(()=>const HomeScreen());
-    }catch(e){
-      Get.snackbar(
-                      'User Not found',
-                      'Check Username and password',
-                      snackPosition: SnackPosition.BOTTOM
-                  );
-      // return e;
+    if (formkey.currentState!.validate()) {
+      try {
+        await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: emailController.text.trim(),
+            password: passwordController.text.trim());
+        Get.off(() => const HomeScreen());
+      } catch (e) {
+        Get.snackbar('User Not found', 'Check Username and password',
+            snackPosition: SnackPosition.BOTTOM);
+        // return e;
+      }
+
+      Get.find<LoginController>().emailController.clear();
+      Get.find<LoginController>().passwordController.clear();
     }
-    
-  Get.find<LoginController>().emailController.clear();
-  Get.find<LoginController>().passwordController.clear();
-    
-
   }
-  
 }
-}
-

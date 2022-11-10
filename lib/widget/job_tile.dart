@@ -17,19 +17,25 @@ class GetNotification extends StatelessWidget {
             Map<String, dynamic> data =
                 snapshot.data!.data() as Map<String, dynamic>;
             return Container(
-              color: Colors.grey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Company Name:${data["Name"]}"),
-                  Text("Job Title:${data["title"]}"),
-                  Text("Discription:${data["discription"]}"),
-                  Text("Passout:${data["passout"]}"),
-                   Text("Backpapers:${data["backpapers"]}"),
-                    Text("Salary:${data["salary"]}"),
-                     Text("Location:${data["location"]}"),
-                      Text("Link:${data["link"]}")
-                ],
+              color: Color.fromARGB(255, 230, 180, 238),
+              
+              child: Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Company Name:${data["Name"]}",style: TextStyle(fontSize: 18),),
+                      Text("Job Title:${data["title"]}",style: TextStyle(fontSize: 18)),
+                      Text("Discription:${data["discription"]}",style: TextStyle(fontSize: 18)),
+                      Text("Passout:${data["passout"]}",style: TextStyle(fontSize: 18)),
+                       Text("Backpapers:${data["backpapers"]}",style: TextStyle(fontSize:18)),
+                        Text("Salary:${data["salary"]}",style: TextStyle(fontSize: 18)),
+                         Text("Location:${data["location"]}",style: TextStyle(fontSize: 18)),
+                          Text("Link:${data["link"]}",style: TextStyle(fontSize: 18))
+                    ],
+                  ),
+                ),
               ),
             );
           }

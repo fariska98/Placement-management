@@ -1,12 +1,17 @@
+
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:placement/controller/login_controller.dart';
 import 'package:placement/views/company_home.dart';
 import 'package:placement/views/faculty_home.dart';
 import 'package:placement/views/home.dart';
 import 'package:placement/views/registration.dart';
+// import 'package:url_launcher/url_launcher.dart';
+
 // import 'package:social_media_buttons/social_media_button.dart';
 // import 'package:social_media_buttons/social_media_buttons.dart';
 
@@ -26,12 +31,18 @@ class LoginView extends StatelessWidget {
               children: [
                 Image.network(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3KOSc0zV5pnXoTCXKTukWcxDMlmHR2x5cbQ&usqp=CAU'),
+                SizedBox(
+                  height: 10,
+                ),
                 const Text(
                   'Placement Management',
                   style: TextStyle(
+                    color: Color.fromARGB(255, 197, 0, 0),
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
+                    
                   ),
+                  
                 ),
                 // const SizedBox(
                 //   height: 20,
@@ -175,8 +186,20 @@ class LoginView extends StatelessWidget {
                       ),
                     ),
                   ],
+                  
                 ),
-                
+                // Center(
+                //   child: Padding(
+                //     padding: const EdgeInsets.only(left: 140),
+                //     child: Row(
+                //      children: [
+                //       IconButton(onPressed:_launchURL, icon:Icon(Icons.facebook_rounded),iconSize: 30,color: Colors.blue,),
+                //      TextButton(onPressed: (){}, child: Text('Facebook'))
+                //      ], 
+                     
+                //     ),
+                //   ),
+                // )
                 // Row(
                 //   children: const [
                 //     SocialMediaButton.facebook(
@@ -197,3 +220,13 @@ class LoginView extends StatelessWidget {
     });
   }
 }
+// _launchURL() async {
+//   const url = 'https://flutter.io';
+//   // ignore: deprecated_member_use
+//   if (await canLaunch(url)) {
+//     // ignore: deprecated_member_use
+//     await launch(url);
+//   } else {
+//     throw 'Could not launch $url';
+//   }
+// }

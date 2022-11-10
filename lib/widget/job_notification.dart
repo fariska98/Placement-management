@@ -1,11 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:placement/controller/job_notification.dart';
+import 'package:placement/widget/job_tile.dart';
 
 class JobNotifications extends StatelessWidget {
   const JobNotifications({super.key});
@@ -15,7 +16,12 @@ class JobNotifications extends StatelessWidget {
     return GetBuilder<JobController>(builder: (controller) {
       return Column(
         children: [
-          CarouselSlider.builder(
+          FutureBuilder(
+        future: controller.getdocID(),
+        builder: (context, snapshot) {
+          return Column(
+            children: [
+               CarouselSlider.builder(
               options: CarouselOptions(
                 aspectRatio: 16/16,
                 viewportFraction: 1,
@@ -28,9 +34,11 @@ class JobNotifications extends StatelessWidget {
                 onPageChanged: (index, reason) =>
                     controller.changePosition(index),
               ),
-              itemCount: 2,
+              itemCount: controller.docIDs.length,
               itemBuilder: (context, index, i) {
                 return Container(
+                  child:GetNotification( 
+                    documentId: controller.docIDs[index],) ,
                   margin: const EdgeInsets.fromLTRB(20, 20, 20, 5),
                   width: double.infinity - 30,
                   decoration: BoxDecoration(
@@ -40,7 +48,7 @@ class JobNotifications extends StatelessWidget {
                 );
               }),
           DotsIndicator(
-            dotsCount: 2,
+            dotsCount: 5,
             position: controller.index.toDouble(),
             decorator: DotsDecorator(
               size: const Size.square(5.0),
@@ -50,8 +58,23 @@ class JobNotifications extends StatelessWidget {
               ),
             ),
           )
-        ],
+
+            ],
+          );
+          // return ListView.builder(
+          //     //list create
+          //     itemCount: controller.docIDs.length,
+          //     itemBuilder: (context, index) {
+          //       return ListTile(
+          //         title: 
+          //         GetNotification(
+          //           documentId: controller.docIDs[index],
+          //         ),
+          //       );
+          //     });
+        },
+      )]);
+    }
       );
-    });
-  }
+    }
 }

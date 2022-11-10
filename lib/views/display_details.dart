@@ -57,18 +57,9 @@ class DisplayDetails extends StatelessWidget {
           child: FutureBuilder(
         future: controller.getdocID(),
         builder: (context, snapshot) {
-          return ListView.builder(
-              //list creat
-              itemCount: controller.docIDs.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: 
-                  GetDetails(
-                    documentId: controller.docIDs[index],
-                  ),
-                );
-              });
-        },
+          return  GetDetails(
+                    documentId: controller.docIDs[0],
+          );},
       )),
           ],
         );
