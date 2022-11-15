@@ -1,14 +1,7 @@
-
-
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:placement/controller/details.dart';
 import 'package:placement/controller/login_controller.dart';
-import 'package:placement/views/company_home.dart';
-import 'package:placement/views/faculty_home.dart';
-import 'package:placement/views/home.dart';
 import 'package:placement/views/registration.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
@@ -31,7 +24,7 @@ class LoginView extends StatelessWidget {
               children: [
                 Image.network(
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3KOSc0zV5pnXoTCXKTukWcxDMlmHR2x5cbQ&usqp=CAU'),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 const Text(
@@ -40,9 +33,7 @@ class LoginView extends StatelessWidget {
                     color: Color.fromARGB(255, 197, 0, 0),
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    
                   ),
-                  
                 ),
                 // const SizedBox(
                 //   height: 20,
@@ -100,14 +91,14 @@ class LoginView extends StatelessWidget {
                   child: Container(
                     decoration: const BoxDecoration(
                         color: Colors.white,
-                        borderRadius:
-                            const BorderRadius.all(const Radius.circular(120))),
+                        borderRadius: BorderRadius.all(Radius.circular(120))),
                     child: TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Email';
                         }
+                        return null;
                       },
                       controller: controller.emailController,
                       decoration: const InputDecoration(
@@ -127,13 +118,13 @@ class LoginView extends StatelessWidget {
                   child: Container(
                     decoration: const BoxDecoration(
                         color: Colors.white,
-                        borderRadius:
-                            const BorderRadius.all(const Radius.circular(120))),
+                        borderRadius: BorderRadius.all(Radius.circular(120))),
                     child: TextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Password';
                         }
+                        return null;
                       },
                       controller: controller.passwordController,
                       obscureText: true,
@@ -157,13 +148,14 @@ class LoginView extends StatelessWidget {
                         onPressed: () {
                           controller.signIn();
                         },
-                        child: const Text('Login'),
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all<
                                     RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18.0),
-                                    side: BorderSide(color: Colors.grey))))),
+                                    side:
+                                        const BorderSide(color: Colors.grey)))),
+                        child: const Text('Login')),
                   ),
                 ),
 
@@ -175,7 +167,8 @@ class LoginView extends StatelessWidget {
                       width: 10,
                     ),
                     GestureDetector(
-                      onTap: () {
+                      onTap: () async {
+                        await Get.find<DetailsController>().getdocID();
                         Get.to(() => const RegistrationView(
                             // user: controller.title[controller.index],
                             ));
@@ -186,7 +179,6 @@ class LoginView extends StatelessWidget {
                       ),
                     ),
                   ],
-                  
                 ),
                 // Center(
                 //   child: Padding(
@@ -195,8 +187,8 @@ class LoginView extends StatelessWidget {
                 //      children: [
                 //       IconButton(onPressed:_launchURL, icon:Icon(Icons.facebook_rounded),iconSize: 30,color: Colors.blue,),
                 //      TextButton(onPressed: (){}, child: Text('Facebook'))
-                //      ], 
-                     
+                //      ],
+
                 //     ),
                 //   ),
                 // )
@@ -207,7 +199,7 @@ class LoginView extends StatelessWidget {
                 //       size: 35,
                 //       color: Colors.blue,
                 //     ),
-                    
+
                 //     Icon(SocialMediaIcons.instagram),
 
                 //   ],

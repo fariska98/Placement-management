@@ -1,17 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class GetDetails extends StatelessWidget {
   final String documentId;
-  GetDetails({required this.documentId});
+  const GetDetails({super.key, required this.documentId});
   @override
   Widget build(BuildContext context) {
     //get collection
-    var email=FirebaseAuth.instance.currentUser!.email;
-    CollectionReference users =
-        FirebaseFirestore.instance.collection(email!);
+    var email = FirebaseAuth.instance.currentUser!.email;
+    CollectionReference users = FirebaseFirestore.instance.collection(email!);
 
     return FutureBuilder<DocumentSnapshot>(
         future: users.doc(documentId).get(),
@@ -49,7 +47,7 @@ class GetDetails extends StatelessWidget {
               ),
             );
           }
-          return Text('loading');
+          return const Text('loading');
         }));
   }
 }

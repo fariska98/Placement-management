@@ -1,26 +1,33 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:placement/controller/login_controller.dart';
 
 class DetailsController extends GetxController {
+  @override
+  void onInit() {
+    if (FirebaseAuth.instance.currentUser != null) {
+      getdocID();
+    }
+    super.onInit();
+  }
+
   final _auth = FirebaseAuth.instance;
   final formkey = GlobalKey<FormState>();
-
-  //var details;
+  var email = FirebaseAuth.instance.currentUser!.email;
+  var details = {};
+  bool isStudent = false;
+  bool isFaculty = false;
+  bool isCompany = false;
 
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController contactController = TextEditingController();
   TextEditingController genderController = TextEditingController();
-
   TextEditingController addressController = TextEditingController();
   TextEditingController departmentController = TextEditingController();
   TextEditingController passoutController = TextEditingController();
   TextEditingController cgpaController = TextEditingController();
-
   TextEditingController backlogController = TextEditingController();
   TextEditingController streamController = TextEditingController();
   TextEditingController collegeController = TextEditingController();
@@ -33,7 +40,6 @@ class DetailsController extends GetxController {
   TextEditingController sslcpersentageController = TextEditingController();
   TextEditingController dateController = TextEditingController();
   DateTime selectedDate = DateTime.now();
-
   TextEditingController companyName = TextEditingController();
   TextEditingController companyEmail = TextEditingController();
   TextEditingController companyHrname = TextEditingController();
@@ -69,8 +75,6 @@ class DetailsController extends GetxController {
 
   registerUser() {
     if (formkey.currentState!.validate()) {
-      var email = _auth.currentUser!.email;
-
       FirebaseFirestore.instance.collection(email!).add({
         "name": nameController.text,
         "email": emailController.text,
@@ -97,14 +101,11 @@ class DetailsController extends GetxController {
 
   List<String> docIDs = [];
   Future getdocID() async {
-    var email = _auth.currentUser!.email;
-    print(email);
     await FirebaseFirestore.instance
         .collection(email!)
         .get()
         .then((snapshot) => snapshot.docs.forEach((document) {
               docIDs.add(document.reference.id);
-              print(docIDs.length);
             }));
   }
 }
