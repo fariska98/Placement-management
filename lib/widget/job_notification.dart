@@ -61,17 +61,7 @@ class JobNotifications extends StatelessWidget {
 
             ],
           );
-          // return ListView.builder(
-          //     //list create
-          //     itemCount: controller.docIDs.length,
-          //     itemBuilder: (context, index) {
-          //       return ListTile(
-          //         title: 
-          //         GetNotification(
-          //           documentId: controller.docIDs[index],
-          //         ),
-          //       );
-          //     });
+          
         },
       )]);
     }

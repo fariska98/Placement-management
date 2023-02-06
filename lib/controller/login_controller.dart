@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:placement/controller/details.dart';
 import 'package:placement/views/details.dart';
 import 'package:placement/views/home.dart';
 
@@ -21,22 +22,7 @@ class LoginController extends GetxController {
     dropdownValue = newValue!;
     update();
   }
-  //      void name() {
-  //   FirebaseFirestore.instance
-  //       .collection("Name")
-  //       .add({"title": nameController.text});
-  // }
-  //  void email() {
-  //   FirebaseFirestore.instance
-  //       .collection("email")
-  //       .add({"title": emailController.text});
-  // }
-
-  // void pass() {
-  //   FirebaseFirestore.instance
-  //       .collection("pass")
-  //       .add({"passward": passwordController.text});
-  // }
+  
   createUser() async {
     if (registrationFormKey.currentState!.validate()) {
       var email = emailController.text;
@@ -64,6 +50,7 @@ class LoginController extends GetxController {
         await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: emailController.text.trim(),
             password: passwordController.text.trim());
+            await Get.find<DetailsController>().getdocID();
         Get.off(() => const HomeScreen());
       } catch (e) {
         Get.snackbar('User Not found', 'Check Username and password',

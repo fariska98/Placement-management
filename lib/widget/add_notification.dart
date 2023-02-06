@@ -5,7 +5,6 @@ import 'package:placement/controller/login_controller.dart';
 
 class AddNotification extends StatelessWidget {
   const AddNotification({Key? key}) : super(key: key);
-  
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class AddNotification extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                   child: TextFormField(
                     validator: (value) {
-                      if (value==null||value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Enter Company Name';
                       }
                     },
@@ -54,7 +53,7 @@ class AddNotification extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                   child: TextFormField(
                     validator: (value) {
-                      if (value==null||value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Job Title';
                       }
                     },
@@ -73,7 +72,7 @@ class AddNotification extends StatelessWidget {
                     maxLines: 4,
                     maxLength: 250,
                     validator: (value) {
-                      if (value==null||value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Discription';
                       }
                     },
@@ -90,7 +89,7 @@ class AddNotification extends StatelessWidget {
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     validator: (value) {
-                      if (value==null||value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Back Papers';
                       }
                     },
@@ -110,7 +109,7 @@ class AddNotification extends StatelessWidget {
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     validator: (value) {
-                      if (value==null||value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Passout Year';
                       }
                     },
@@ -127,7 +126,7 @@ class AddNotification extends StatelessWidget {
                   child: TextFormField(
                     keyboardType: TextInputType.number,
                     validator: (value) {
-                      if (value==null||value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Salary Range';
                       }
                     },
@@ -143,7 +142,7 @@ class AddNotification extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                   child: TextFormField(
                     validator: (value) {
-                      if (value==null||value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Job Location';
                       }
                     },
@@ -160,7 +159,7 @@ class AddNotification extends StatelessWidget {
                   child: TextFormField(
                     keyboardType: TextInputType.url,
                     validator: (value) {
-                      if (value==null||value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Link For Apply';
                       }
                     },
@@ -173,11 +172,12 @@ class AddNotification extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
+                  padding:
+                      const EdgeInsets.only(left: 20, right: 20, bottom: 20),
                   child: TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
-                      if (value==null||value.isEmpty) {
+                      if (value == null || value.isEmpty) {
                         return 'Email';
                       }
                     },
@@ -190,14 +190,16 @@ class AddNotification extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 25, right: 25, bottom: 25),
+                  padding:
+                      const EdgeInsets.only(left: 25, right: 25, bottom: 25),
                   child: SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
                           onPressed: () {
                             controller.submit();
                             Get.back();
-                          }, child: const Text('Submit'))),
+                          },
+                          child: const Text('Submit'))),
                 )
               ],
             ),

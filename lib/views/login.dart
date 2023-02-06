@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:placement/controller/details.dart';
 import 'package:placement/controller/login_controller.dart';
 import 'package:placement/views/registration.dart';
 // import 'package:url_launcher/url_launcher.dart';
@@ -35,54 +34,7 @@ class LoginView extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                // const SizedBox(
-                //   height: 20,
-                // ),
-                // SizedBox(
-                //   height: 50,
-                //   width: double.infinity,
-                //   child: ClipRRect(
-                //     borderRadius: BorderRadius.circular(10),
-                //     child: Row(
-                //       children: [
-                //         Expanded(
-                //           child: ElevatedButton(
-                //             onPressed: () {
-                //               controller.changeUser(0);
-                //             },
-                //             child: const Text('Student'),
-                //           ),
-                //         ),
-                //         Expanded(
-                //           child: ElevatedButton(
-                //             onPressed: () {
-                //               controller.changeUser(1);
-                //             },
-                //             child: const Text('Company'),
-                //           ),
-                //         ),
-                //         Expanded(
-                //           child: ElevatedButton(
-                //             onPressed: () {
-                //               controller.changeUser(2);
-                //             },
-                //             child: const Text('Faculty'),
-                //           ),
-                //         ),
-                //       ],
-                //     ),
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 40,
-                // ),
-                // Text(
-                //   controller.title[controller.index],
-                //   style: const TextStyle(
-                //     fontSize: 22,
-                //     fontWeight: FontWeight.bold,
-                //   ),
-                // ),
+                
                 const SizedBox(
                   height: 20,
                 ),
@@ -146,6 +98,7 @@ class LoginView extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                         onPressed: () {
+
                           controller.signIn();
                         },
                         style: ButtonStyle(
@@ -168,7 +121,7 @@ class LoginView extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () async {
-                        await Get.find<DetailsController>().getdocID();
+                        
                         Get.to(() => const RegistrationView(
                             // user: controller.title[controller.index],
                             ));
@@ -180,30 +133,7 @@ class LoginView extends StatelessWidget {
                     ),
                   ],
                 ),
-                // Center(
-                //   child: Padding(
-                //     padding: const EdgeInsets.only(left: 140),
-                //     child: Row(
-                //      children: [
-                //       IconButton(onPressed:_launchURL, icon:Icon(Icons.facebook_rounded),iconSize: 30,color: Colors.blue,),
-                //      TextButton(onPressed: (){}, child: Text('Facebook'))
-                //      ],
-
-                //     ),
-                //   ),
-                // )
-                // Row(
-                //   children: const [
-                //     SocialMediaButton.facebook(
-                //       url: "https://www.facebook.com/mesaimat1",
-                //       size: 35,
-                //       color: Colors.blue,
-                //     ),
-
-                //     Icon(SocialMediaIcons.instagram),
-
-                //   ],
-                // )
+                
               ],
             ),
           ),
@@ -212,13 +142,4 @@ class LoginView extends StatelessWidget {
     });
   }
 }
-// _launchURL() async {
-//   const url = 'https://flutter.io';
-//   // ignore: deprecated_member_use
-//   if (await canLaunch(url)) {
-//     // ignore: deprecated_member_use
-//     await launch(url);
-//   } else {
-//     throw 'Could not launch $url';
-//   }
-// }
+

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -44,7 +45,7 @@ class JobController extends GetxController {
         .collection("Jobs")
         .add({"Name": companyName.text,"title":jobTitle.text,"discription":discription.text,
         "backpapers":backPapers.text,"passout":passoutYear.text,"salary":salaryRange.text,
-        "location":jobLocation.text,"link":linkForApply.text});
+        "location":jobLocation.text,"link":linkForApply.text,"userid":FirebaseAuth.instance.currentUser!.email});
   
   }
 

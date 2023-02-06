@@ -51,11 +51,14 @@ class DrawerWidget extends StatelessWidget {
                 ],
               ),
             ),
-            ListTile(
-              onTap: () {
-                Get.to(() => const DisplayDetails());
-              },
-              title: const Text('Profile'),
+            Visibility(
+              visible: Get.find<DetailsController>().isStudent,
+              child: ListTile(
+                onTap: () {
+                  Get.to(() => const DisplayDetails());
+                },
+                title: const Text('Profile'),
+              ),
             ),
             const ListTile(
               title: Text('My Applications'),
@@ -74,7 +77,9 @@ class DrawerWidget extends StatelessWidget {
             ),
             ListTile(
               onTap: () async {
+                 await Get.find<DetailsController>().clearValues();
                 Get.find<LoginController>().signout();
+                
                 Get.to(() => const LoginView());
               },
               title: const Text('Log out'),
@@ -199,6 +204,7 @@ class FacultyDrawerWidget extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
+             
               Get.back();
             },
             title: const Text('Log out'),
